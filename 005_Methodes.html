@@ -18,10 +18,10 @@
             </li>
         </UL>
 
-        <input type="text" id="idNomProfs">
+        <input type="text" id="idNomProfs" v-model="unprof">
         <BR>
 
-        <button id="btn">
+        <button id="btn" @click="ajouterNom">
             Ajoutez un prof
         </button>
 
@@ -35,12 +35,18 @@
         data: {
             unmessage: 'Bienvenue dans ce cours PPE',
             profs: ['Roubeau','Vigny','Damico','Robert'],
+            unprof: '',
         },
         mounted() {
-            document.querySelector("#btn").addEventListener('click',() => {
+       /*     document.querySelector("#btn").addEventListener('click',() => {
                 let nomP = document.querySelector("#idNomProfs")
                 app.profs.push(nomP.value)
-            })
+            })*/
+        },
+        methods: {
+            ajouterNom() {
+                this.profs.push(this.unprof)
+            }
         }
     })
 </script>
